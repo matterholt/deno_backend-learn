@@ -6,6 +6,22 @@ const app = new Application();
 const router = new Router();
 
 
+interface CouresBook{
+  id : string,
+  title: string,
+  gradeLevel : string
+}
+
+
+interface CourseChapters {
+  id : string,
+  subject : string,
+  numberOfChapters : number
+}
+//MOC data
+const courses = new Map();
+
+
 // get all courses 
 router.get('/api/courses', (ctx)=>{
   ctx.response.body = 'Recieve a GET HTTP method'
