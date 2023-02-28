@@ -1,5 +1,5 @@
 
-import { Application, Router } from 'https://deno.land/x/oak/mod.ts';
+import { Application, Router, helpers } from 'https://deno.land/x/oak/mod.ts';
 
 const port = 8000;
 const app = new Application();
@@ -19,15 +19,15 @@ router.post('/api/courses', (ctx)=>{
 })
 
 // put 
-router.put('/api/courses', (ctx)=>{
-  ctx.response.body = 'Recieve a PUT HTTP method'
+router.put('/api/courses/:courseId', (ctx)=>{
+  const { courseId} = helpers.getQuery(ctx, { mergePrams: true})
+  ctx.response.body = `Recieve a PUT HTTP method update ${ctx.params.courseId}`
 })
 
 // delete 
-
-
-router.delete('/api/courses', (ctx)=>{
-  ctx.response.body = 'Recieve a DELETE HTTP method'
+router.delete('/api/courses/:courseId', (ctx)=>{
+  const { courseId} = helpers.getQuery(ctx, { mergePrams: true})
+  ctx.response.body = `recieve a delete http method remove ${ctx.params.courseId}`
 })
 
 
