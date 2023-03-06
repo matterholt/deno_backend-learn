@@ -1,4 +1,16 @@
 
+interface UserData{
+  id: sting,
+  name : string,
+  
+}
+
+interface SeletedCourse {
+  id: string,
+  userId : sting,
+  selectedCourseId :sting[]
+}
+
 
 interface CourseBook{
   id : string,
@@ -15,7 +27,10 @@ interface CourseChapter {
 }
 //MOC data
 const Courses = new Map<sting, CourseBook>();
-const CoursesDetails = new Map<sting, CurseChapter>();
+const CoursesDetails = new Map<sting, CourseChapter>();
+const User = new Map<sting, UserData> ();
+const CourseSaved = new Map<sting,SeletedCourse>();
+
 Courses.set(
   '1',{
     id: '1',
@@ -48,8 +63,38 @@ CoursesDetails.set(
     
   }
 )
+
+User.set(
+  '1',{
+    id: '1',
+    name: 'Sam'
+  }
+)
+User.set(
+  '2',{
+    id : '2',
+    name : "Jill"
+  }
+)
+
+CourseSaved.set(
+  '1',{
+  id: '1',
+  userId : '2',
+  selectedCourseId :['1']
+  }
+)
+CourseSaved.set(
+  '2',{
+  id: '1',
+  userId : '1',
+  selectedCourseId :[]
+  })
+
 export default{
   Courses,
-  CoursesDetails
+  CoursesDetails,
+  User,
+  CourseSaved
 }
 
