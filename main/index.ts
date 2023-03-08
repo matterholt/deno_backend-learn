@@ -8,19 +8,20 @@ const app = new Application();
 
 app.use(async (ctx,next)=>{
   ctx.state = {
-    models
+    models,
+    me: models.User.get('3'),// Simple user session/auth.
   }
   await next()
 })
 
 app.use(routes.courses.allowedMethods());
-app.use(routes.courses.routes())
+app.use(routes.courses.routes());
 
 app.use(routes.users.allowedMethods());
-app.use(routes.users.routes())
+app.use(routes.users.routes());
 
-app.use(routes.coursedsaved .allowedMethods());
-app.use(routes.coursedsaved .routes())
+app.use(routes.coursedsaved.allowedMethods());
+app.use(routes.coursedsaved.routes())
 
 
 app.addEventListener('listen',()=> {

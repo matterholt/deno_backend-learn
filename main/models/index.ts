@@ -76,6 +76,12 @@ User.set(
     name : "Jill"
   }
 )
+User.set(
+  '3',{
+    id : '3',
+    name : "Matterholt"
+  }
+)
 
 CourseSaved.set(
   '1',{

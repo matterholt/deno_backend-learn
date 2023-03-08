@@ -5,8 +5,10 @@ const router = new Router();
 
 // GET ALL
 router.get('/api/users', (ctx)=> {
-	ctx.response.body = Array.from(ctx.state.models.User.values())
-  // ctx.response.body = `PUT HTTP method on useruserIdresource`;
+	console.log(ctx.state.me.name)
+	// ctx.response.body = Array.from(ctx.state.models.User.values())
+ ctx.response.body = ctx.state.models.User.get(ctx.state.me.name);  
+ // ctx.response.body = `PUT HTTP method on useruserIdresource`;
 })
 
 
